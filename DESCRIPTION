@@ -1,0 +1,10 @@
+Package: jconfig
+Title: Config handling in R
+Version: 0.0.0.9000
+Authors@R: person("Sébastien", "Lamy de la Chapelle", email = "sebastien@jalgos.com", role = c("aut", "cre"))
+Description: JSON Config for R
+Depends: R (>= 3.2.5)
+Imports: RJSONIO
+License: What license is it under?
+Encoding: UTF-8
+LazyData: true
