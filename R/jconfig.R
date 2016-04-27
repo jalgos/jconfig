@@ -32,7 +32,10 @@ JC.get <- function(CFG,
     V
 }
 
-#' Will load the config from a JSON file or string. Sub configs can be included with clauses of the form: "include:path/to/other/config.json".
+#' Loading configs
+#'
+#' @details
+#' Will load the config from a JSON file or string. Sub configs can be included with clauses of the form: "include : path/to/other/config.json".
 #' @param ... Parameters to be passed to the RJSONIO fromJSON function
 #' @return A list containing the config parameters. Everything is recursively converted to a list so acess has to be done through: "[["
 #' @export
@@ -46,9 +49,10 @@ loadJConfig <- function(...)
 global.config <- NULL
 
 #' @name set.get.config
-#' @title functions to set and get the global config
+#' @title Setting / setting global config
 #' @param CFG new function to assign
 #' @return The global config for get.config
+#' @description
 #' Functions to set and access a global config
 NULL
 
