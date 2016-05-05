@@ -4,7 +4,7 @@
 \alias{get.config}
 \alias{set.config}
 \alias{set.get.config}
-\title{functions to set and get the global config}
+\title{Setting / setting global config}
 \usage{
 set.config(CFG)
 

@@ -4,18 +4,18 @@
 \alias{loadJConfig}
 \title{Loading configs}
 \usage{
-loadJConfig(...)
+loadJConfig(file, ...)
 }
 \arguments{
-\item{...}{Parameters to be passed to the RJSONIO fromJSON function}
+\item{...}{Parameters to be passed to the RJSONIO fromJSON function or source}
 }
 \value{
-A list containing the config parameters. Everything is recursively converted to a list so acess has to be done through: "[["
+A list containing the config parameters. Everything is recursively converted to a list so acess has to be done through: "[[" or jsutils::deep.list
 }
 \description{
 Loading configs
 }
 \details{
-Will load the config from a JSON file or string. Sub configs can be included with clauses of the form: "include:path/to/other/config.json".
+Will load the config from a JSON file or a R file. Sub configs can be included with clauses of the form: "include : path/to/other/config".
 }
 
