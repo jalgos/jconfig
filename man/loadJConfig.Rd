@@ -18,4 +18,7 @@ Loading configs
 \details{
 Will load the config from a JSON file or a R file. Sub configs can be included with clauses of the form: "include : path/to/other/config".
 }
+\seealso{
+set.config, get.config
+}
 

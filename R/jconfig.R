@@ -1,15 +1,3 @@
-#' jconfig: Managing configuration files
-#'
-#' This package provides a way to manage configuration files. Files can be loaded from disk. They can be either JSON or R. Configurations can include other configuration files with clauses of the form: "include": "path/to/other/config"
-#' 
-#' @section Functions:
-#' Users need to use 'loadJConfig', 'get.config' and 'set.config'
-#' 
-#'
-#' @docType package
-#' @name package-jconfig
-NULL
-
 ## Simple wrapper over RJSONIO to load configs
 ## Beware that all the field names must be escaped
 
@@ -50,11 +38,12 @@ JC.get <- function(CFG,
 #' Will load the config from a JSON file or a R file. Sub configs can be included with clauses of the form: "include : path/to/other/config".
 #' @param ... Parameters to be passed to the RJSONIO fromJSON function or source
 #' @return A list containing the config parameters. Everything is recursively converted to a list so acess has to be done through: "[[" or jsutils::deep.list
+#' @seealso set.config, get.config
 #' @export
 loadJConfig <- function(file,
                         ...)
 {
-    if(grep("*.R$", file))
+    if(grepl("*.R$", file))
     {
         CFG <- source(file,
                       ...)
