@@ -43,15 +43,19 @@ JC.get <- function(CFG,
 loadJConfig <- function(file,
                         ...)
 {
-    if(grepl("*.R$", file))
-    {
-        CFG <- source(file,
-                      ...)
-        CFG <- CFG$value
-    }
-    else
-        CFG <- RJSONIO::fromJSON(file,
-                                 ...)
+    CFG <- tryCatch({
+        if(grepl("*.R$", file))
+        {
+            CFG <- source(file,
+                          ...)
+            CFG$value
+        }
+        else
+            RJSONIO::fromJSON(file,
+                              ...)
+    },
+    error = function(cond) stop(sprintf("File %s couldn't be loaded reason: %s", file, cond$message)))
+    
     CFG <- JC.load.includes(CFG)
     JC.reformat(CFG)
 }
