@@ -6,9 +6,9 @@
 \alias{set.get.config}
 \title{Setting / setting global config}
 \usage{
-set.config(CFG)
+set.config(CFG, handle = "global")
 
-get.config()
+get.config(handle = "global")
 }
 \arguments{
 \item{CFG}{new function to assign}
