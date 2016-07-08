@@ -72,8 +72,8 @@ NULL
 
 #' @rdname set.get.config
 #' @export
-set.config <- function(CFG, handle = "global") global.config[handle] <- CFG
+set.config <- function(CFG, handle = "global") global.configs[handle] <- CFG
 
 #' @rdname set.get.config
 #' @export
-get.config <- function(handle = "global") global.config[handle]
+get.config <- function(handle = "global") global.configs[handle]
