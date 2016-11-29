@@ -23,6 +23,13 @@ JC.reformat <- function(CFG)
     lapply(CFG, JC.reformat)
 }
 
+#' Config Value
+#'
+#' Get the value of a given configuration field with a default in case this field doesn't exist.
+#' @param CFG configuration object
+#' @param keys vector of character giving the path to the desired field
+#' @param default default value to be used in case no field is found
+#' @export
 JC.get <- function(CFG,
                    keys,
                    default)
