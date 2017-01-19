@@ -30,7 +30,7 @@ JC.reformat <- function(CFG)
 #' @param keys vector of character giving the path to the desired field
 #' @param default default value to be used in case no field is found
 #' @export
-JC.get <- function(CFG,
+get.field <- function(CFG,
                    keys,
                    default)
 {
@@ -47,7 +47,7 @@ JC.get <- function(CFG,
 #' @return A list containing the config parameters. Everything is recursively converted to a list so acess has to be done through: "[[" or jsutils::deep.list
 #' @seealso set.config, get.config
 #' @export
-loadJConfig <- function(file,
+load.config <- function(file,
                         ...)
 {
     CFG <- tryCatch({
