@@ -1,26 +1,26 @@
 ## Simple wrapper over RJSONIO to load configs
 ## Beware that all the field names must be escaped
 
-JC.load.includes <- function(CFG)
+load.includes <- function(CFG)
 { 
     nms <- names(CFG)
     if(is.null(nms)) return(CFG)
-    if(!"include" %in% nms) return(lapply(CFG, JC.load.includes))
-    SCFG <- loadJConfig(CFG[["include"]])
+    if(!"include" %in% nms) return(lapply(CFG, load.includes))
+    SCFG <- load.config(CFG[["include"]])
     CFG <- c(SCFG, CFG)
     CFG[["include"]] <- NULL
-    lapply(CFG, JC.load.includes)
+    lapply(CFG, load.includes)
 }
 
 ## So everything is a list
-JC.reformat <- function(CFG)
+reformat <- function(CFG)
 {    
     if(!is.list(CFG))
     {
         if(!is.null(names(CFG))) return(as.list(CFG))
         return(CFG)
     }
-    lapply(CFG, JC.reformat)
+    lapply(CFG, reformat)
 }
 
 #' Config Value
@@ -31,8 +31,8 @@ JC.reformat <- function(CFG)
 #' @param default default value to be used in case no field is found
 #' @export
 get.field <- function(CFG,
-                   keys,
-                   default)
+                      keys,
+                      default)
 {
     V <- jsutils::deep.list(CFG, keys)
     if(is.null(V)) return(default)
@@ -63,8 +63,8 @@ load.config <- function(file,
     },
     error = function(cond) stop(sprintf("File %s couldn't be loaded reason: %s", file, cond$message)))
     
-    CFG <- JC.load.includes(CFG)
-    JC.reformat(CFG)
+    CFG <- load.includes(CFG)
+    reformat(CFG)
 }
 
 global.configs <- new.env()
