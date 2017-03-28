@@ -32,7 +32,7 @@ reformat <- function(CFG)
 #' @export
 get.field <- function(CFG,
                       keys,
-                      default)
+                      default = NULL)
 {
     V <- jsutils::deep.list(CFG, keys)
     if(is.null(V)) return(default)

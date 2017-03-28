@@ -4,7 +4,7 @@
 \alias{get.field}
 \title{Config Value}
 \usage{
-get.field(CFG, keys, default)
+get.field(CFG, keys, default = NULL)
 }
 \arguments{
 \item{CFG}{configuration object}
