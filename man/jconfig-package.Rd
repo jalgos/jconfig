@@ -13,3 +13,7 @@ This package provides a way to manage configuration files. Files can be loaded f
 Users need to use 'loadJConfig', 'get.config' and 'set.config'
 }
 
+\author{
+\strong{Maintainer}: Sébastien Lamy de la Chapelle \email{sebastien@jalgos.com}
+
+}

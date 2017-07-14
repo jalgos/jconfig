@@ -21,4 +21,3 @@ Will load the config from a JSON file or a R file. Sub configs can be included w
 \seealso{
 set.config, get.config
 }
-

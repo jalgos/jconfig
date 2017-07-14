@@ -16,4 +16,3 @@ get.field(CFG, keys, default = NULL)
 \description{
 Get the value of a given configuration field with a default in case this field doesn't exist.
 }
-
