@@ -86,7 +86,7 @@ set.config <- function(CFG, handle = "global") global.configs[[handle]] <- CFG
 get.config <- function(handle = "global")
 {
     TRY <- global.configs[[handle]]
-    if(!is.null(TRY))
+    if(handle == "global" || !is.null(TRY))
         return(TRY)
     CONF <- get.config()
     if(is.null(CONF))
