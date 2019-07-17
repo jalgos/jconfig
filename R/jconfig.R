@@ -4,7 +4,6 @@
 load.includes <- function(CFG)
 { 
     nms <- names(CFG)
-    if(is.null(nms)) return(CFG)
     if(!"include" %in% nms) return(lapply(CFG, load.includes))
     SCFG <- load.config(CFG[["include"]])
     CFG <- c(SCFG, CFG)
