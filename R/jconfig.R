@@ -3,8 +3,8 @@
 
 load.includes <- function(CFG)
 { 
-    nms <- names(CFG)
-    if(!"include" %in% nms) return(lapply(CFG, load.includes))
+    if(class(CFG) != "list") return(CFG)
+    if(!"include" %in% names(CFG)) return(lapply(CFG, load.includes))
     SCFG <- load.config(CFG[["include"]])
     CFG <- c(SCFG, CFG)
     CFG[["include"]] <- NULL
