@@ -8,3 +8,10 @@ test_that("Loading configs from R files works", {
     expect_equal(config$d, "test")
     expect_equal(config$e, 1:5)
 })
+
+test_that("Loading configs from R files works", {
+    config <- load.config("config.json")
+    expect_equal(config$e, 1:5)
+    expect_equal(config$mongo_host, "localhost:11111")
+    expect_equal(config$d, "test")
+})
