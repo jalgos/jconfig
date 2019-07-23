@@ -1,0 +1,9 @@
+{
+        "include" : "included.R",
+        "mongo_host" : "localhost:11111",
+        "mongo_db" : "aaa",
+        "collection" : "uuu",
+        "table_types_prefix" : "type",
+        "tmproot" : "/tmp",
+        "mongo_export_script" : ""
+}
