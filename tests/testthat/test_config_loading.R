@@ -15,3 +15,13 @@ test_that("Loading configs from R files works", {
     expect_equal(config$mongo_host, "localhost:11111")
     expect_equal(config$d, "test")
 })
+
+test_that("Overwriting fields combined with including works ",
+{
+    config <- load.config("overwriting.R")
+    dconfig <- load.config("doubleincluding.R")
+    overconfig <- load.config("overwritting_sublevel.R")
+    expect_equal(config$d, "overwritten")
+    expect_equal(dconfig$d, "overwritten")
+    expect_equal(overconfig$d, "over_level_overwritten")
+})

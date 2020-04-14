@@ -9,6 +9,11 @@ load.includes <- function(CFG)
     if(!"include" %in% nms)
         return(lapply(CFG, load.includes))
     SCFG <- load.config(CFG[["include"]])
+    for(nm in (intersect(nms, names(SCFG)) %-% "include"))
+    {
+        if(nm %in% names(SCFG))
+            SCFG[[nm]] <- NULL
+    }
     CFG <- c(SCFG, CFG)
     CFG[["include"]] <- NULL
     lapply(CFG, load.includes)
