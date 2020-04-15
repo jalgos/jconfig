@@ -19,9 +19,16 @@ test_that("Loading configs from R files works", {
 test_that("Overwriting fields combined with including works ",
 {
     config <- load.config("overwriting.R")
-    dconfig <- load.config("doubleincluding.R")
-    overconfig <- load.config("overwritting_sublevel.R")
     expect_equal(config$d, "overwritten")
+    
+    dconfig <- load.config("doubleincluding.R")
     expect_equal(dconfig$d, "overwritten")
+    
+    overconfig <- load.config("overwritting_sublevel.R")
     expect_equal(overconfig$d, "over_level_overwritten")
+    expect_equal(overconfig$e, 1:5)
+
+    mealconfig <- load.config("including_unnamed.R")
+    expect_equal(length(mealconfig$ingredients), 2)
+    expect_equal(mealconfig$ingredients[[2]]$name, "tomato")
 })

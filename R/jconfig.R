@@ -8,9 +8,16 @@ load.includes <- function(CFG)
         return(CFG)
     if(!"include" %in% nms)
         return(lapply(CFG, load.includes))
+    
     SCFG <- load.config(CFG[["include"]])
-    CFG <- c(CFG[setdiff(nms, "include")],
-             SCFG[setdiff(names(SCFG), c(nms, "include"))])
+    fields <- setdiff(nms, "include")
+    
+    if(is.null(names(SCFG)))
+        CFG <- c(CFG[fields], SCFG)
+    else
+        CFG <- c(CFG[fields],
+                 SCFG[setdiff(names(SCFG), fields)])
+
     lapply(CFG, load.includes)
 }
 
