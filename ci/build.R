@@ -1,1 +1,2 @@
-devtools::build(binary = FALSE)
+devtools::document()
+devtools::build()
