@@ -1,7 +1,7 @@
 Package: jconfig
 Title: Config handling in R
-Version: 1.0.2
-Date: 2020-10-11
+Version: 1.0.3
+Date: 2020-07-16
 Authors@R: person("Sébastien", "Lamy de la Chapelle", email = "sebastien@jalgos.com", role = c("aut", "cre"))
 Description: JSON and R file Config for R
 Depends:
