@@ -55,8 +55,6 @@ get.field <- function(CFG,
 #' @param L the list
 #' @param keys Vector of the keys. A path in the tree formed in the
 #' @param value Optional value to be assigned
-#' @examples L = deep.list(list(), c("A", "B", "C"), 1)
-#' @examples deep.list(L, c("A", "B", "C"))
 deep.list <- function(L = list(),
                       keys,
                       value)
@@ -80,6 +78,7 @@ deep.list <- function(L = list(),
 #' @param ... Parameters to be passed to the RJSONIO fromJSON function or source
 #' @return A list containing the config parameters. Everything is recursively converted to a list so acess has to be done through: "[[" or jsutils::deep.list
 #' @seealso set.config, get.config
+#' @importFrom RJSONIO fromJSON
 #' @export
 load.config <- function(file,
                         ...)
