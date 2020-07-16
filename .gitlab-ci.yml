@@ -12,7 +12,7 @@ variables:
 
 default:
   before_script:
-    - echo "OK"
+    - R -e 'install.packages("RJSONIO")'
 
 build:
   stage: build
