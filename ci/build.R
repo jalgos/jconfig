@@ -1,3 +1,1 @@
-.libPaths("lib")
-
-devtools::build(binary = TRUE)
+devtools::build(binary = FALSE)

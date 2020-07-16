@@ -2,16 +2,16 @@
 ## Beware that all the field names must be escaped
 
 load.includes <- function(CFG)
-{ 
+{
     nms <- names(CFG)
     if(is.null(nms) && !is.list(CFG))
         return(CFG)
     if(!"include" %in% nms)
         return(lapply(CFG, load.includes))
-    
+
     SCFG <- load.config(CFG[["include"]])
     fields <- setdiff(nms, "include")
-    
+
     if(is.null(names(SCFG)))
         CFG <- c(CFG[fields], SCFG)
     else
@@ -23,7 +23,7 @@ load.includes <- function(CFG)
 
 ## So everything is a list
 reformat <- function(CFG)
-{    
+{
     if(!is.list(CFG))
     {
         if(!is.null(names(CFG))) return(as.list(CFG))
@@ -43,10 +43,35 @@ get.field <- function(CFG,
                       keys,
                       default = NULL)
 {
-    V <- jsutils::deep.list(CFG, keys)
+    V <- deep.list(CFG, keys)
     if(is.null(V)) return(default)
     V
 }
+
+#' List assignment
+#'
+#' Request or assigns values deep in the list at any arbitrary depth.
+#' Function moved from jsutils in order to avoid circular dependencies
+#' @param L the list
+#' @param keys Vector of the keys. A path in the tree formed in the
+#' @param value Optional value to be assigned
+#' @examples L = deep.list(list(), c("A", "B", "C"), 1)
+#' @examples deep.list(L, c("A", "B", "C"))
+deep.list <- function(L = list(),
+                      keys,
+                      value)
+{
+    if(length(keys) == 1)
+    {
+        if(missing(value)) return(L[[keys]])
+        L[[keys]] <- value
+        return(L)
+    }
+    if(missing(value)) return(deep.list(L[[keys[1]]], keys[-1]))
+    L[[keys[1]]] <- as.list(deep.list(L[[keys[1]]], keys[-1], value))
+    L
+}
+
 
 #' Loading configs
 #'
@@ -71,7 +96,7 @@ load.config <- function(file,
                               ...)
     },
     error = function(cond) stop(sprintf("File %s couldn't be loaded reason: %s", file, cond$message)))
-    
+
     CFG <- load.includes(CFG)
     reformat(CFG)
 }
