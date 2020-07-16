@@ -1,15 +1,15 @@
 Package: jconfig
 Title: Config handling in R
 Version: 1.0.2
+Date: 2020-10-11
 Authors@R: person("Sébastien", "Lamy de la Chapelle", email = "sebastien@jalgos.com", role = c("aut", "cre"))
 Description: JSON and R file Config for R
 Depends:
-    R (>= 3.2.0)
-Imports:
+    R (>= 3.5.0),
     RJSONIO
 License: Jalgos License
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.0
-Suggests: 
+Suggests:
     testthat

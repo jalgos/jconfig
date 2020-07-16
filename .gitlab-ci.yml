@@ -12,9 +12,12 @@ variables:
 
 default:
   before_script:
-    - rm -rf lib
-    - mkdir -p lib
-    - Rscript ci/dependencies.R
+    - install2.r \
+      --skipinstalled \
+      --error \
+      --deps TRUE \
+      --repos https://cran.rstudio.com \
+      RJSONIO
 
 build:
   stage: build
