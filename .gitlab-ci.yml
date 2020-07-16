@@ -12,12 +12,7 @@ variables:
 
 default:
   before_script:
-    - install2.r \
-      --skipinstalled \
-      --error \
-      --deps TRUE \
-      --repos https://cran.rstudio.com \
-      RJSONIO
+    - R CMD INSTALL RJSONIO
 
 build:
   stage: build
