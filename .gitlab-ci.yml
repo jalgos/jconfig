@@ -12,7 +12,7 @@ variables:
 
 default:
   before_script:
-    - R CMD INSTALL RJSONIO
+    - echo "OK"
 
 build:
   stage: build
